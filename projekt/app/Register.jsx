@@ -1,4 +1,5 @@
-import { Link, useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Alert,
@@ -18,6 +19,7 @@ import ThemedTextPola from "../components/ThemedTextPola";
 import ThemedView from "../components/ThemedView";
 
 const Register = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -86,13 +88,12 @@ const Register = () => {
 
           <Rozdzielacz height={90} />
 
-          <Link href="/Login" style={styles.link}>
-            <ThemedText
-              style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
-            >
-              Masz już konto? Zaloguj się
-            </ThemedText>
-          </Link>
+          <ThemedText
+            onPress={() => navigation.navigate("Login")}
+            style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
+          >
+            Masz już konto? Zaloguj się
+          </ThemedText>
         </ThemedView>
       </TouchableWithoutFeedback>
     </>
