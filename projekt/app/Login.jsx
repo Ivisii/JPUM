@@ -56,11 +56,9 @@ const Login = () => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ThemedView style={styles.container}>
           <ThemedText>Logowanie</ThemedText>
-        </ThemedView>
-      </TouchableWithoutFeedback>
 
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ThemedView style={[styles.container, { flex: 2, width: "100%" }]}>
+          <Rozdzielacz height={40} />
+
           <View style={{ width: "80%", marginBottom: 10 }}>
             <ThemedTextPola
               style={{ width: "100%" }}
@@ -82,31 +80,26 @@ const Login = () => {
               autoCapitalize="none"
             />
           </View>
-        </ThemedView>
-      </TouchableWithoutFeedback>
 
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <ThemedView style={[styles.container, { flex: 2 }]}>
+          <Rozdzielacz height={20} />
+
           <ThemedButton onPress={handleLogin} disabled={loading}>
             <Text style={{ color: "white", alignContent: "center" }}>
               {loading ? " Logowanie... " : " Zaloguj "}
             </Text>
           </ThemedButton>
+
+          <Rozdzielacz height={90} />
+
+          <Link href="/Register" style={styles.link}>
+            <ThemedText
+              style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
+            >
+              Nie masz konta? Zarejestruj się
+            </ThemedText>
+          </Link>
         </ThemedView>
       </TouchableWithoutFeedback>
-
-      <ThemedView style={[styles.container, { flex: 3 }]}>
-        <Rozdzielacz height={60} />
-        <Link href="/Register" style={styles.link}>
-          <ThemedText
-            style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
-          >
-            Nie masz konta? Zarejestruj się
-          </ThemedText>
-        </Link>
-
-        <Rozdzielacz height={100} />
-      </ThemedView>
     </>
   );
 };
@@ -117,6 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
   link: {
     borderBottomWidth: 1,

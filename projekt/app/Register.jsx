@@ -47,49 +47,55 @@ const Register = () => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <ThemedView style={styles.container}>
-        <ThemedText style={{}}>Rejestracja</ThemedText>
+    <>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <ThemedView style={styles.container}>
+          <ThemedText>Rejestracja</ThemedText>
 
-        <Rozdzielacz height={40} />
+          <Rozdzielacz height={40} />
 
-        <View style={{ width: "80%", marginBottom: 10 }}>
-          <ThemedTextPola
-            style={{ width: "100%" }}
-            placeholder="Email"
-            keyboardType="email-address"
-            value={email}
-            onChangeText={setEmail}
-            autoCapitalize="none"
-          />
-        </View>
+          <View style={{ width: "80%", marginBottom: 10 }}>
+            <ThemedTextPola
+              style={{ width: "100%" }}
+              placeholder="Email"
+              keyboardType="email-address"
+              value={email}
+              onChangeText={setEmail}
+              autoCapitalize="none"
+            />
+          </View>
 
-        <View style={{ width: "80%", marginBottom: 15 }}>
-          <ThemedTextPola
-            style={{ width: "100%" }}
-            placeholder="Hasło"
-            secureTextEntry={true}
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-          />
-        </View>
+          <View style={{ width: "80%", marginBottom: 15 }}>
+            <ThemedTextPola
+              style={{ width: "100%" }}
+              placeholder="Hasło"
+              secureTextEntry={true}
+              value={password}
+              onChangeText={setPassword}
+              autoCapitalize="none"
+            />
+          </View>
 
-        <Rozdzielacz height={20} />
+          <Rozdzielacz height={20} />
 
-        <ThemedButton onPress={handleRegister} disabled={loading}>
-          <Text style={{ color: "white" }}>
-            {loading ? "Rejestracja..." : "Zarejestruj"}
-          </Text>
-        </ThemedButton>
+          <ThemedButton onPress={handleRegister} disabled={loading}>
+            <Text style={{ color: "white", alignContent: "center" }}>
+              {loading ? " Rejestracja... " : " Zarejestruj "}
+            </Text>
+          </ThemedButton>
 
-        <Rozdzielacz height={90} />
+          <Rozdzielacz height={90} />
 
-        <Link href="/Login" style={styles.link}>
-          Masz już konto? Zaloguj się
-        </Link>
-      </ThemedView>
-    </TouchableWithoutFeedback>
+          <Link href="/Login" style={styles.link}>
+            <ThemedText
+              style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
+            >
+              Masz już konto? Zaloguj się
+            </ThemedText>
+          </Link>
+        </ThemedView>
+      </TouchableWithoutFeedback>
+    </>
   );
 };
 
