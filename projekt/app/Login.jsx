@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
   Alert,
@@ -16,6 +16,7 @@ import ThemedView from "../components/ThemedView";
 import { supabase } from "../lib/supabase";
 
 const Login = () => {
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -91,13 +92,12 @@ const Login = () => {
 
           <Rozdzielacz height={90} />
 
-          <Link href="/Register" style={styles.link}>
-            <ThemedText
-              style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
-            >
-              Nie masz konta? Zarejestruj się
-            </ThemedText>
-          </Link>
+          <ThemedText
+            onPress={() => navigation.navigate("Register")}
+            style={{ borderBottomWidth: 1, borderBottomColor: "white" }}
+          >
+            Nie masz konta? Zarejestruj się
+          </ThemedText>
         </ThemedView>
       </TouchableWithoutFeedback>
     </>
